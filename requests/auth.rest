@@ -1,0 +1,29 @@
+### Post Login Path
+POST localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+  "name": "admin",
+  "password": "password"
+}
+
+### Post Login Path Incorrect Creds
+POST localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+  "name": "admin",
+  "password": "password1"
+}
+
+### Post Register Path
+POST localhost:3000/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "testUser",
+  "password": "password"
+}
+
+### Post LogOut Path
+POST localhost:3000/api/auth/logout
