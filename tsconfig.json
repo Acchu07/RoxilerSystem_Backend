@@ -1,6 +1,9 @@
 {
   "extends": "@tsconfig/node24/tsconfig.json",
   "compilerOptions": {
+    "typeRoots": [
+      "./src/types"
+    ],
     "moduleResolution": "node",
     "esModuleInterop": true,
     "outDir": "./dist",

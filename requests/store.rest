@@ -1,0 +1,22 @@
+### Create new store
+POST http://localhost:3000/api/v1/store
+Content-Type: application/json
+
+{
+}
+
+### Get all stores
+GET http://localhost:3000/api/v1/store
+
+### Get store by ID
+GET http://localhost:3000/api/v1/store/1
+
+### Update store
+PUT http://localhost:3000/api/v1/store/1
+Content-Type: application/json
+
+{
+}
+
+### Delete store
+DELETE http://localhost:3000/api/v1/store/1

@@ -26,7 +26,11 @@ class ServiceUser {
         if (userPresent) {
             const correctPassword = await ServiceAuth.verifyPassword(user.password, userPresent.password);
             if (correctPassword) {
-                const token = serviceAuth.generateToken({id: userPresent.id, email: userPresent.email});
+                const token = serviceAuth.generateToken({
+                    id: userPresent.id,
+                    email: userPresent.email,
+                    role: userPresent.role
+                });
                 return token;
             }
         }

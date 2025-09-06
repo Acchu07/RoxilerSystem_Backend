@@ -24,6 +24,7 @@ export const dbUniqueUserFind = async (email: string) => {
             name: true,
             email: true,
             password: true,
+            role: true
         }
     });
     return user;

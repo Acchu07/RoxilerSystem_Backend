@@ -1,0 +1,26 @@
+### Create a new rating
+POST http://localhost:3000/api/v1/rating
+Content-Type: application/json
+
+{
+  "rating": 5,
+  "comment": "Great service!"
+}
+
+### Get all ratings
+GET http://localhost:3000/api/v1/rating
+
+### Get rating by ID
+GET http://localhost:3000/api/v1/rating/1
+
+### Update rating
+PUT http://localhost:3000/api/v1/rating/1
+Content-Type: application/json
+
+{
+  "rating": 4,
+  "comment": "Updated comment"
+}
+
+### Delete rating
+DELETE http://localhost:3000/api/v1/rating/1

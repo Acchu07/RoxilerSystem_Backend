@@ -1,9 +1,28 @@
-import {User} from "@prisma/client";
+import {Rating, Store, User} from "@prisma/client";
 
 type RegisterUser = Pick<User, "name" | "password" | "email" | "address">;
 type UserRegistered = Pick<User, "name" | "email">;
-type UserPresent = Pick<User, "id" | "name" | "email" | "password"> | null;
+type UserPresent = Pick<User, "id" | "name" | "email" | "password" | "role"> | null;
 type LoginUser = Pick<User, "email" | "password">;
-type UserWithToken = Pick<User, "id" | "email">;
+type UserWithToken = Pick<User, "id" | "email" | "role">;
 
-export type {RegisterUser, UserPresent, UserRegistered, LoginUser, UserWithToken};
+type RegisterStore = Pick<Store, "name" | "email" | "address" | "ownerId">;
+
+type RegisterRating = Pick<Rating, "value" | "storeId" | "userId">;
+
+interface jwtPayload {
+    exp: number;
+    data: UserWithToken;
+    iat: number;
+}
+
+export type {
+    RegisterUser,
+    UserPresent,
+    UserRegistered,
+    LoginUser,
+    UserWithToken,
+    jwtPayload,
+    RegisterStore,
+    RegisterRating
+};
