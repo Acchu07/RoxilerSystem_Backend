@@ -14,8 +14,13 @@ export function loggerError(...params: string[]) {
 }
 
 export const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
-    // Switch Statement for error handling but how to figure out what type of error it is?
-    // Check express 5 new error handling for async
-    console.error(err.stack);
-    res.status(500).send('Something broke!');
+    switch (err.message) {
+        case'USER_EXISTS':
+            return res.status(409).json('User Exists in DB');
+        default:
+            console.log(err.message);
+            console.error(err.stack);
+            res.status(500).send('Something broke!');
+    }
+
 };

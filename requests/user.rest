@@ -3,10 +3,12 @@ POST http://localhost:3000/api/v1/users
 Content-Type: application/json
 
 {
-  "name": "John Doe",
-  "email": "john@example.com",
-  "password": "password123"
+  "name": "test",
+  "email": "test6@example.com",
+  "password": "password",
+  "address": "someplace somelane"
 }
+
 
 ### Get all users
 GET http://localhost:3000/api/v1/users
@@ -17,10 +19,10 @@ GET http://localhost:3000/api/v1/users/1
 ### Update user
 PUT http://localhost:3000/api/v1/users/1
 Content-Type: application/json
+Cookie: token=s%3AeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTcxODg0OTcsImRhdGEiOnsiaWQiOjExLCJlbWFpbCI6InRlc3Q0QGV4YW1wbGUuY29tIiwicm9sZSI6IlVTRVIifSwiaWF0IjoxNzU3MTg2MTE2fQ.woMLUeS456L2LoRFIfwtTGb4afNG-waOLjZLpCMa9VM.B6nrjQaU550It2o7vP9EJHx3ZK%2BXsqI1hnX1dDVcjc4
 
 {
-  "name": "John Updated",
-  "email": "john.updated@example.com"
+  "password": "newpassword"
 }
 
 ### Delete user

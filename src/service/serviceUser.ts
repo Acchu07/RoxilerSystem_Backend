@@ -2,7 +2,8 @@ import {loggerInfo} from "../utils/logger";
 import ServiceAuth from "./serviceAuth";
 import serviceAuth from "./serviceAuth";
 import {LoginUser, RegisterUser, UserPresent, UserRegistered} from "../types/allTypes";
-import {dbUniqueUserFind, dbUserCreate} from "../model/dbUser";
+import {dbUniqueUserFind, dbUserCreate, dbUserFindAll, dbUserUpdate} from "../model/dbUser";
+import type {Request} from "express";
 
 class ServiceUser {
     constructor() {
@@ -13,6 +14,7 @@ class ServiceUser {
         // Validator here or in a middleware? - Do in Middleware
         const userPresent = await dbUniqueUserFind(user.email);
         if (userPresent) {
+            throw new Error("USER_EXISTS");
             return userPresent;
         }
         const hashedpassword = await ServiceAuth.hashPassword(user.password);
@@ -36,6 +38,21 @@ class ServiceUser {
         }
         return false;
     }
+
+    async getAllUser() {
+        const allUsers = await dbUserFindAll();
+        return allUsers;
+    }
+
+    async updateUser(reqObject: Request) {
+        const id: number = reqObject.token.data.id;
+        const password: string = reqObject.body.password;
+        const userObject = {id: id, password: password};
+        const hashedpassword = await ServiceAuth.hashPassword(userObject.password);
+        userObject.password = hashedpassword;
+        const updatedUser = await dbUserUpdate(userObject);
+        return updatedUser;
+    };
 }
 
 

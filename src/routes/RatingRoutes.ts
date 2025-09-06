@@ -3,6 +3,7 @@ import {createRating, deleteRating, getAllRatings, getRatingById, updateRating} 
 
 const ratingRouter = express.Router();
 
+// Needs validators and Role based access control
 ratingRouter.post("/", createRating);
 ratingRouter.get("/", getAllRatings);
 ratingRouter.get("/:id", getRatingById);

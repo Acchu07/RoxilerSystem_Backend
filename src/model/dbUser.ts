@@ -1,5 +1,5 @@
 import Database from "./prismaDBSingleInstance";
-import {RegisterUser, UserPresent, UserRegistered} from "../types/allTypes";
+import {RegisterUser, UserPresent, UserRegistered, UserToUpdate} from "../types/allTypes";
 
 const prisma = Database.getInstance();
 
@@ -28,4 +28,31 @@ export const dbUniqueUserFind = async (email: string) => {
         }
     });
     return user;
+};
+
+export const dbUserFindAll = async () => {
+    const allUsers = await prisma.user.findMany({
+        select: {
+            name: true,
+            email: true,
+            address: true,
+            role: true
+        }
+    });
+    return allUsers;
+};
+
+export const dbUserUpdate = async (userObject: UserToUpdate) => {
+    const updatedUser = await prisma.user.update({
+        where: {
+            id: userObject.id,
+        },
+        data: {
+            password: userObject.password,
+        },
+        select: {
+            name: true
+        }
+    });
+    return updatedUser;
 };

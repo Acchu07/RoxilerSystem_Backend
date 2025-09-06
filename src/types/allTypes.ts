@@ -5,6 +5,7 @@ type UserRegistered = Pick<User, "name" | "email">;
 type UserPresent = Pick<User, "id" | "name" | "email" | "password" | "role"> | null;
 type LoginUser = Pick<User, "email" | "password">;
 type UserWithToken = Pick<User, "id" | "email" | "role">;
+type UserToUpdate = Pick<User, "id" | "password">;
 
 type RegisterStore = Pick<Store, "name" | "email" | "address" | "ownerId">;
 
@@ -24,5 +25,6 @@ export type {
     UserWithToken,
     jwtPayload,
     RegisterStore,
-    RegisterRating
+    RegisterRating,
+    UserToUpdate,
 };
