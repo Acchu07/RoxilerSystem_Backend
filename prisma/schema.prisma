@@ -6,7 +6,6 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "./prisma"
 }
 
 datasource db {
@@ -20,7 +19,7 @@ model User {
   id        Int      @id @default(autoincrement())
   name      String
   email     String   @unique
-  address   String?
+  address   String? // Address seems to be mandatory but marking optional
   password  String
   role      Role     @default(USER)
   stores    Store?

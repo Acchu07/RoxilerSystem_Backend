@@ -3,7 +3,7 @@ POST localhost:3000/api/auth/login
 Content-Type: application/json
 
 {
-  "name": "admin",
+  "email": "admin@example.com",
   "password": "password"
 }
 
@@ -12,7 +12,7 @@ POST localhost:3000/api/auth/login
 Content-Type: application/json
 
 {
-  "name": "admin",
+  "email": "admin",
   "password": "password1"
 }
 
@@ -21,8 +21,10 @@ POST localhost:3000/api/auth/register
 Content-Type: application/json
 
 {
-  "name": "testUser",
-  "password": "password"
+  "name": "test",
+  "email": "test4@example.com",
+  "password": "password",
+  "address": "someplace somelane"
 }
 
 ### Post LogOut Path

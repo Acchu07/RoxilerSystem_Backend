@@ -1,7 +1,7 @@
 import express from "express";
 import cookieParser from "cookie-parser";
 import config from './utils/config.js';
-import {loggerInfo} from "./utils/logger.js";
+import {errorHandler, loggerInfo} from "./utils/logger.js";
 import adminRouter from "./routes/adminRoute";
 import authRouter from "./routes/authRoute";
 
@@ -16,5 +16,8 @@ app.get("/", (req, res) => {
     res.status(200).json("Base Base Path");
     loggerInfo("Response sent");
 });
+
+
+app.use(errorHandler);
 
 export default app;

@@ -1,38 +1,32 @@
 import type {Request, Response} from "express";
-import jwt from "jsonwebtoken";
+import serviceUser from "../service/serviceUser";
 import config from "../utils/config";
 
-function attemptLogin(req: Request, res: Response) {
-    const {name, password} = req.body;
-    if (name === 'admin' && password === 'password') {
-
-        const payloadToSign = {
-            name: name,
-            email: "retrievefromDB",// Index email do i need ID since email is unique??
-            role: "ADMIN", // RetrieveFromDB
-        };
-        const jsonToken = jwt.sign({
-            exp: config.EXPIRATION_TIME,
-            data: payloadToSign
-        }, config.JWT_SECRET);
-
-        res.status(200)
-            .cookie('token', jsonToken, {
+async function attemptLogin(req: Request, res: Response) {
+    const isLoginSuccess = await serviceUser.LoginUser(req.body);
+    if (isLoginSuccess) {
+        return res.status(200)
+            .cookie('token', isLoginSuccess, {
                 httpOnly: true,
                 maxAge: config.EXPIRATION_TIME,
                 signed: true,
-            }).json({message: {payload: payloadToSign, token: jsonToken}});
-        return;
+            })
+            .json({message: "Login Successful"});
     }
-    res.status(200).json({message: "Incorrect credentials"});
+    return res.status(401).json({message: "Incorrect credentials"});
 }
 
 function attemptLogout(req: Request, res: Response) {
     res.status(200).json({message: "logout"});
 }
 
-function attemptRegister(req: Request, res: Response) {
-    res.status(200).json({message: "register"});
+async function attemptRegister(req: Request, res: Response) {
+    const newUser = await serviceUser.createUser(req.body);
+    // This could be done better throw error to express? try catch? dont waste time now - Come back later
+    if (newUser && "id" in newUser) {
+        return res.status(409).json({message: "User already exists"});
+    }
+    res.status(200).json({message: "Registration Successful", user: newUser});
 }
 
 export {attemptLogin, attemptLogout, attemptRegister};

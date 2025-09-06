@@ -20,7 +20,8 @@ Content-Type: application/json
 {
   "username": "testuser",
   "email": "test@example.com",
-  "password": "password123"
+  "password": "password123",
+  "address": "SomeLane SomePlace"
 }
 
 ### Create admin user
