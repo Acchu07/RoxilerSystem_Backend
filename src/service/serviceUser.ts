@@ -5,6 +5,7 @@ import {LoginUser, RegisterUser, UserPresent, UserRegistered} from "../types/all
 import {dbUniqueUserFind, dbUserCreate, dbUserFindAll, dbUserUpdate} from "../model/dbUser";
 import type {Request} from "express";
 
+// Should have had admin and store owner extend from this class
 class ServiceUser {
     constructor() {
         loggerInfo('Invoked Service User');
@@ -15,7 +16,6 @@ class ServiceUser {
         const userPresent = await dbUniqueUserFind(user.email);
         if (userPresent) {
             throw new Error("USER_EXISTS");
-            return userPresent;
         }
         const hashedpassword = await ServiceAuth.hashPassword(user.password);
         const registerNewUser = {...user, password: hashedpassword};

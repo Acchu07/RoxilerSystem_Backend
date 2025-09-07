@@ -13,3 +13,15 @@ export const dbRatingCreate = async (ratingObject: RegisterRating) => {
     });
     return rating;
 };
+
+export const dbRatingUpdate = async (ratingObject: { id: number, value: number }) => {
+    const updateRating = await prisma.rating.update({
+        where: {
+            id: ratingObject.id,
+        },
+        data: {
+            value: ratingObject.value,
+        },
+    });
+    return updateRating;
+};

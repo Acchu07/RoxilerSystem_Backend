@@ -1,15 +1,16 @@
 import {Request, Response} from 'express';
+import serviceStore from "../service/serviceStore";
 
-export const createStore = (req: Request, res: Response) => {
-    res.status(201).json({message: 'Store created successfully'});
+export const createStore = async (req: Request, res: Response) => {
+    const newStore = await serviceStore.createStore(req.body);
+    res.status(201).json({message: 'Store created successfully', data: newStore});
 };
 
-export const getAllStores = (req: Request, res: Response) => {
+export const getAllStores = async (req: Request, res: Response) => {
+    const allStores = await serviceStore.getAllStores();
     res.status(200).json({
-        stores: [
-            {id: 1, name: 'Store 1'},
-            {id: 2, name: 'Store 2'}
-        ]
+        message: 'Stores retrieved successfully',
+        data: allStores,
     });
 };
 

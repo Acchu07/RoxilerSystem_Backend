@@ -14,8 +14,9 @@ function tokenVerification(req: Request, res: Response, next: NextFunction) {
         }
         if (isJwtPayload(decoded)) {
             req.token = decoded;
+            next();
         }
-        next();
+
     });
 }
 

@@ -19,7 +19,7 @@ GET http://localhost:3000/api/v1/users/1
 ### Update user
 PUT http://localhost:3000/api/v1/users/1
 Content-Type: application/json
-Cookie: token=s%3AeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTcxODg0OTcsImRhdGEiOnsiaWQiOjExLCJlbWFpbCI6InRlc3Q0QGV4YW1wbGUuY29tIiwicm9sZSI6IlVTRVIifSwiaWF0IjoxNzU3MTg2MTE2fQ.woMLUeS456L2LoRFIfwtTGb4afNG-waOLjZLpCMa9VM.B6nrjQaU550It2o7vP9EJHx3ZK%2BXsqI1hnX1dDVcjc4
+Cookie: token=s%3AeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTcyMjE1NDUsImRhdGEiOnsiaWQiOjExLCJlbWFpbCI6InRlc3Q0QGV4YW1wbGUuY29tIiwicm9sZSI6IlVTRVIifSwiaWF0IjoxNzU3MjE4MDY3fQ.bG9nfUvbZ8rNv5pvhOo8okDiGr6JX7wMqdpE4GuoWAc.eeBOcz57MEX6nJGM2Ab4hPKgFF2Ei%2B63tShJMTraoP4
 
 {
   "password": "newpassword"

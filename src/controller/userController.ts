@@ -12,13 +12,11 @@ export const getAllUsers = async (req: Request, res: Response) => {
 };
 
 export const updateUser = async (req: Request, res: Response) => {
-    console.log(req.token);
-    console.log(req.body);
     const updatedUser = await serviceUser.updateUser(req);
     return res.status(200).json({message: "User updated successfully", data: updatedUser});
 };
 
-// Dummy Not Required
+// Dummy Not Required Right now
 export const getUserById = async (req: Request, res: Response) => {
     const {id} = req.params;
     return res.status(200).json({message: "User retrieved successfully", data: {id}});

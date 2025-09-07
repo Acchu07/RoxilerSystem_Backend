@@ -1,32 +1,30 @@
 import {Request, Response} from 'express';
+import serviceRating from "../service/serviceRating";
 
-export const createRating = (req: Request, res: Response) => {
+export const createRating = async (req: Request, res: Response) => {
+    const newRating = await serviceRating.createRating(req);
     res.status(200).json({
-        message: 'Rating created successfully'
+        message: 'Rating created successfully',
+        rating: newRating,
     });
 };
 
-export const getAllRatings = (req: Request, res: Response) => {
+export const updateRating = async (req: Request, res: Response) => {
+    const updatedRating = await serviceRating.updateRating(req);
     res.status(200).json({
-        ratings: [
-            {id: 1, rating: 5},
-            {id: 2, rating: 4}
-        ]
+        message: 'Rating updated successfully',
+        data: updatedRating,
     });
+};
+
+export const getAllRatings = async (req: Request, res: Response) => {
+    res.status(200).json({message: 'Rating Updated successfully', data: 1});
 };
 
 export const getRatingById = (req: Request, res: Response) => {
     const {id} = req.params;
     res.status(200).json({
         rating: {id: id, rating: 5}
-    });
-};
-
-export const updateRating = (req: Request, res: Response) => {
-    const {id} = req.params;
-    res.status(200).json({
-        message: 'Rating updated successfully',
-        rating: {id: id, ...req.body}
     });
 };
 
