@@ -13,7 +13,11 @@ if (!COOKIE_SECRET) {
 }
 // const DATABASE_URL = process.env.DATABASE_URL;;
 
-const EXPIRATION_TIME = Math.floor(Date.now() / 1000) + (60 * 60);
+const EXPIRATION_TIME = Math.floor(Date.now() / 1000) + (120 * 120);
+
+const CORS_OPTIONS = {
+    origin: 'http://localhost:5173',
+};
 
 
-export default {PORT, JWT_SECRET, COOKIE_SECRET, EXPIRATION_TIME};
+export default {PORT, JWT_SECRET, COOKIE_SECRET, EXPIRATION_TIME, CORS_OPTIONS};

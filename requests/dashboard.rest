@@ -1,7 +1,7 @@
 ### Get DashBoard Base Path Admin
 # @no-cookie-jar
 GET localhost:3000/api/v1/dashboard
-Cookie: token=s%3AeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTcxNzA4ODgsImRhdGEiOnsiaWQiOjcsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJyb2xlIjoiQURNSU4ifSwiaWF0IjoxNzU3MTY4MDMxfQ.3vSGFaBjQnnrj5-Nh_oO_wHd4jl00DkKyPKr3ofjBk0.HDds5skmU2uKg26EZz2Vo1kq0k1dRE9lpoLiOIdOawk
+Cookie: token=s%3AeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTcyODczNTQsImRhdGEiOnsiaWQiOjcsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJyb2xlIjoiQURNSU4ifSwiaWF0IjoxNzU3MjczMDE1fQ._-JGqnb799J1SNzhYbzzfP59UxU89t924uHHdiWMPP0.Wb1QbJwwQk%2Fxd0aB81wnxJKTRcLX0e7Wb0P0s4cIF%2BY
 
 ### Get DashBoard Base Path User
 # @no-cookie-jar
@@ -14,3 +14,6 @@ Cookie: token=s%3AeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTcxNzA4ODgsI
 GET localhost:3000/api/v1/dashboard
 Cookie: token=s%3AeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTcxNjY0MTAsImRhdGEiOnsiaWQiOjgsImVtYWlsIjoidGVzdEBleGFtcGxlLmNvbSIsInJvbGUiOiJTVE9SRV9PV05FUiJ9LCJpYXQiOjE3NTcxNjI5NDV9.636sDSFdhVSAhAICn9DXnHeUsDa-zA3jpFakyn6Phbw.oowU5jLbwvQVScCX9VejOy1Dnrnk5YGVs4IVJkLP6zo
 
+###
+GET localhost:3000/
+#@no-cookie-jar

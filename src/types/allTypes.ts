@@ -17,6 +17,8 @@ interface jwtPayload {
     iat: number;
 }
 
+type Role = "ADMIN" | "STORE_OWNER" | "USER";
+
 export type {
     RegisterUser,
     UserPresent,
@@ -27,4 +29,5 @@ export type {
     RegisterStore,
     RegisterRating,
     UserToUpdate,
+    Role
 };
