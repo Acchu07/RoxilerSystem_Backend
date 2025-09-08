@@ -17,6 +17,7 @@ const EXPIRATION_TIME = Math.floor(Date.now() / 1000) + (120 * 120);
 
 const CORS_OPTIONS = {
     origin: 'http://localhost:5173',
+    credentials: true,
 };
 
 

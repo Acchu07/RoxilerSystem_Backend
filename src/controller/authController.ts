@@ -5,18 +5,21 @@ import config from "../utils/config";
 async function attemptLogin(req: Request, res: Response) {
     const isLoginSuccess = await serviceUser.LoginUser(req.body);
     if (isLoginSuccess) {
+        const {role, token} = isLoginSuccess;
         return res.status(200)
-            .cookie('token', isLoginSuccess, {
+            .cookie('token', token, {
                 httpOnly: true,
                 maxAge: config.EXPIRATION_TIME,
                 signed: true,
+                // add path so cookie is sent only on that path - later
             })
-            .json({message: "Login Successful", role: isLoginSuccess.role});
+            .json({message: "Login Successful", role: role});
     }
     return res.status(401).json({message: "Incorrect credentials"});
 }
 
 function attemptLogout(req: Request, res: Response) {
+    console.log(res.clearCookie('token', {httpOnly: true, signed: true}));
     res.status(200).json({message: "logout"});
 }
 

@@ -1,7 +1,5 @@
 ### Get DashBoard Base Path Admin
-# @no-cookie-jar
 GET localhost:3000/api/v1/dashboard
-Cookie: token=s%3AeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTcyODczNTQsImRhdGEiOnsiaWQiOjcsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJyb2xlIjoiQURNSU4ifSwiaWF0IjoxNzU3MjczMDE1fQ._-JGqnb799J1SNzhYbzzfP59UxU89t924uHHdiWMPP0.Wb1QbJwwQk%2Fxd0aB81wnxJKTRcLX0e7Wb0P0s4cIF%2BY
 
 ### Get DashBoard Base Path User
 # @no-cookie-jar
