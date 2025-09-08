@@ -30,17 +30,6 @@ export const dbStoreFindAll = async () => {
             }
         }
     });
-
-    // const allStores = await prisma.$queryRaw`
-    //     SELECT S.id,
-    //            S.name,
-    //            S.email,
-    //            S.address,
-    //            S."ownerId",
-    //            AVG(R.value) AS "Average Rating"
-    //     FROM "Store" AS S
-    //              INNER JOIN "Rating" AS R ON R."storeId" = S.id
-    //     GROUP BY S.id
-    // `;
+    
     return allStores;
 };

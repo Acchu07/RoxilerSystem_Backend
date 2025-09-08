@@ -1,16 +1,5 @@
-### Get DashBoard Base Path Admin
+### Get DashBoard
 GET localhost:3000/api/v1/dashboard
-
-### Get DashBoard Base Path User
-# @no-cookie-jar
-GET localhost:3000/api/v1/dashboard
-Cookie: token=s%3AeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTcxNzA4ODgsImRhdGEiOnsiaWQiOjgsImVtYWlsIjoidGVzdEBleGFtcGxlLmNvbSIsInJvbGUiOiJTVE9SRV9PV05FUiJ9LCJpYXQiOjE3NTcxNjgwNTh9.HMgQIPaXT6I83W2IBQbuwSOVBoyj_rCwR3P8SRWADMw.qMdrMjEEmbp%2BxsDgvQ4Ep8vzE24JftuKFgmslu7ke5s
-
-
-### Get DashBoard Base Path Store Owner
-# @no-cookie-jar
-GET localhost:3000/api/v1/dashboard
-Cookie: token=s%3AeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTcxNjY0MTAsImRhdGEiOnsiaWQiOjgsImVtYWlsIjoidGVzdEBleGFtcGxlLmNvbSIsInJvbGUiOiJTVE9SRV9PV05FUiJ9LCJpYXQiOjE3NTcxNjI5NDV9.636sDSFdhVSAhAICn9DXnHeUsDa-zA3jpFakyn6Phbw.oowU5jLbwvQVScCX9VejOy1Dnrnk5YGVs4IVJkLP6zo
 
 ###
 GET localhost:3000/

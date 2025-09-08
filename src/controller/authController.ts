@@ -19,7 +19,7 @@ async function attemptLogin(req: Request, res: Response) {
 }
 
 function attemptLogout(req: Request, res: Response) {
-    console.log(res.clearCookie('token', {httpOnly: true, signed: true}));
+    res.clearCookie('token', {httpOnly: true, signed: true});
     res.status(200).json({message: "logout"});
 }
 

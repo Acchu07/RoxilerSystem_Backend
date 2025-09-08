@@ -1,7 +1,10 @@
+import {adminDashBoardCount} from "../model/dbCustom";
+
 class AdminDashboard {
 
-    getDashboard() {
-        return "Admin Dashboard";
+    async getDashboard() {
+        const data = await adminDashBoardCount();
+        return data;
     }
 
 }
