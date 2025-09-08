@@ -18,7 +18,7 @@ export const updateRating = async (req: Request, res: Response) => {
 };
 
 export const getAllRatings = async (req: Request, res: Response) => {
-    res.status(200).json({message: 'Rating Updated successfully', data: 1});
+    res.status(200).json({message: 'Retrieved All Ratings successfully'});
 };
 
 export const getRatingById = (req: Request, res: Response) => {

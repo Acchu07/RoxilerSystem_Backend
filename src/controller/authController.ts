@@ -11,7 +11,7 @@ async function attemptLogin(req: Request, res: Response) {
                 maxAge: config.EXPIRATION_TIME,
                 signed: true,
             })
-            .json({message: "Login Successful"});
+            .json({message: "Login Successful", role: isLoginSuccess.role});
     }
     return res.status(401).json({message: "Incorrect credentials"});
 }

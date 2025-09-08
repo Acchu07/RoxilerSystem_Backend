@@ -1,12 +1,17 @@
 import express from 'express';
 import {createUser, deleteUser, getAllUsers, getUserById, updateUser} from '../controller/userController';
+import roleCheck from "../utils/roleCheck";
 
 const userRouter = express.Router();
-// Needs validators and Role based access control
-userRouter.post('/', createUser);
-userRouter.get('/', getAllUsers);
+// Needs validator middleware
+
+userRouter.post('/', roleCheck("ADMIN"), createUser);
+userRouter.get('/', roleCheck("ADMIN"), getAllUsers);
+// Messed up - ToDo One user can have multiple roles changeDBSchema - Do Later
+userRouter.put('/:id', roleCheck("USER"), updateUser);
+
+// Not required for now
 userRouter.get('/:id', getUserById);
-userRouter.put('/:id', updateUser);
 userRouter.delete('/:id', deleteUser);
 
 

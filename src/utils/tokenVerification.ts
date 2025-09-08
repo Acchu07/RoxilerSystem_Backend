@@ -5,7 +5,6 @@ import config from "./config";
 
 function tokenVerification(req: Request, res: Response, next: NextFunction) {
     const token: string = req.signedCookies.token;
-    console.log(token);
     if (!token) {
         return res.status(401).json({message: "Unauthorized"});
     }

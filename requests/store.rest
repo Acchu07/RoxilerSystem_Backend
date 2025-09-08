@@ -4,11 +4,10 @@ Content-Type: application/json
 
 {
   "name": "testStore",
-  "email": "testStore@store.com",
+  "email": "testStore1@store.com",
   "address": "TestLaneForTestStore",
-  "ownerId": 8
+  "ownerId": 12
 }
 
 ### Get all stores
 GET http://localhost:3000/api/v1/store
-# @no-cookie-jar

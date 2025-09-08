@@ -1,10 +1,9 @@
 ### Create a new rating
 POST http://localhost:3000/api/v1/rating
 Content-Type: application/json
-Cookie: token=s%3AeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTcyMzE2MzMsImRhdGEiOnsiaWQiOjExLCJlbWFpbCI6InRlc3Q0QGV4YW1wbGUuY29tIiwicm9sZSI6IlVTRVIifSwiaWF0IjoxNzU3MjI4MDY3fQ.SxHIfDgmKu8_knL5yhVhaW9JrYYh_lU4jbxmO7lIOq8.NjKBnLNtcNMSuqf0YPwyPW7JvN6Jvyxq%2F9l5j%2BKEaIQ
 
 {
-  "storeId": 1,
+  "storeId": 10,
   "rating": 5
 }
 
@@ -17,11 +16,11 @@ GET http://localhost:3000/api/v1/rating/1
 ### Update rating
 PUT http://localhost:3000/api/v1/rating/1
 Content-Type: application/json
-Cookie: s%3AeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTcyMzQ3NjMsImRhdGEiOnsiaWQiOjExLCJlbWFpbCI6InRlc3Q0QGV4YW1wbGUuY29tIiwicm9sZSI6IlVTRVIifSwiaWF0IjoxNzU3MjMxMTY0fQ.KyrzP6mfvcIP3i997d1PQqQIrFFLBnDV7I8DZ5I5MEQ.T9Ei5YJoIELqdql0I0XG8LSP%2F1ednqmDEy2RKtQm6tQ
+Cookie: s%3AeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTczMzE3MTMsImRhdGEiOnsiaWQiOjExLCJlbWFpbCI6InRlc3Q0QGV4YW1wbGUuY29tIiwicm9sZSI6IlVTRVIifSwiaWF0IjoxNzU3MzE3NTYyfQ.oj-ohAGVsfJDvlFaKLMugZabXW30BmtHUrT7oEI_1tc.1s1PG3kj3%2B%2BM%2FWgKHlN2A9MlSVV1fcuEZ0%2BJWnmN22s
 
 {
-  "id": 1,
-  "rating": 2
+  "id": 2,
+  "rating": 4
 }
 
 ### Delete rating

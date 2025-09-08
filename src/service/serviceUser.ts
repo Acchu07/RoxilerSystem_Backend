@@ -6,6 +6,7 @@ import {dbUniqueUserFind, dbUserCreate, dbUserFindAll, dbUserUpdate} from "../mo
 import type {Request} from "express";
 
 // Should have had admin and store owner extend from this class
+// This should have been an inheritance from an abstract class there are commonalities
 class ServiceUser {
     constructor() {
         loggerInfo('Invoked Service User');
@@ -33,7 +34,7 @@ class ServiceUser {
                     email: userPresent.email,
                     role: userPresent.role
                 });
-                return token;
+                return {role: userPresent.role, token};
             }
         }
         return false;
@@ -53,6 +54,10 @@ class ServiceUser {
         const updatedUser = await dbUserUpdate(userObject);
         return updatedUser;
     };
+
+    async retrieveDashBoardInfo() {
+
+    }
 }
 
 
