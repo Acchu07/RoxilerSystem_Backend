@@ -4,7 +4,7 @@ Content-Type: application/json
 
 {
   "email": "admin@example.com",
-  "password": "password"
+  "password": "P@1234567"
 }
 
 ### Post Login Path StoreOwner
@@ -40,10 +40,33 @@ POST localhost:3000/api/v1/auth/register
 Content-Type: application/json
 
 {
-  "name": "test",
-  "email": "test5@example.com",
-  "password": "password",
-  "address": "someplace somelane"
+  "name": "admin",
+  "email": "admin@example.com",
+  "password": "P@1234567",
+  "address": "adminplace adminlane"
+}
+
+### Post Register Path
+POST localhost:3000/api/v1/auth/register
+Content-Type: application/json
+
+{
+  "name": "user",
+  "email": "user@example.com",
+  "password": "P@1234567",
+  "address": "userplace userlane"
+}
+
+
+### Post Register Path
+POST localhost:3000/api/v1/auth/register
+Content-Type: application/json
+
+{
+  "name": "storeOwner",
+  "email": "storeOwner@example.com",
+  "password": "P@1234567",
+  "address": "storeownerplace storeOwnerlane"
 }
 
 ### Post LogOut Path

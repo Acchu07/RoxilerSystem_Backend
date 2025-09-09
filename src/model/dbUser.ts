@@ -33,6 +33,7 @@ export const dbUniqueUserFind = async (email: string) => {
 export const dbUserFindAll = async () => {
     const allUsers = await prisma.user.findMany({
         select: {
+            id: true,
             name: true,
             email: true,
             address: true,

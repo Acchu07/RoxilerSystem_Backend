@@ -6,7 +6,7 @@ Content-Type: application/json
   "name": "testStore",
   "email": "testStore1@store.com",
   "address": "TestLaneForTestStore",
-  "ownerId": 12
+  "ownerId": 2
 }
 
 ### Get all stores

@@ -15,6 +15,7 @@ export function loggerError(...params: string[]) {
 
 // Terrible error handling redo this if time left
 export const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
+    console.log(err)
     switch (err.code) {
         case 'P2002':
             return res.status(409).json('One Store One Owner and Owner has a store');
@@ -22,7 +23,7 @@ export const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
 
     switch (err.message) {
         case'USER_EXISTS':
-            return res.status(409).json('User Exists in DB');
+            return res.status(409).json({message: 'User Exists in DB'});
         default:
             console.log('This is the Message');
             console.error(err.message);
