@@ -1,6 +1,7 @@
 import {Rating, Store, User} from "@prisma/client";
 
 type RegisterUser = Pick<User, "name" | "password" | "email" | "address">;
+type AdminRegisterUser = Pick<User, "name" | "password" | "email" | "address" | "role">
 type UserRegistered = Pick<User, "name" | "email">;
 type UserPresent = Pick<User, "id" | "name" | "email" | "password" | "role"> | null;
 type LoginUser = Pick<User, "email" | "password">;
@@ -29,5 +30,6 @@ export type {
     RegisterStore,
     RegisterRating,
     UserToUpdate,
-    Role
+    Role,
+    AdminRegisterUser
 };

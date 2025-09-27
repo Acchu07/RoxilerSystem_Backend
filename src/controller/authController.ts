@@ -1,6 +1,7 @@
 import type {Request, Response} from "express";
 import serviceUser from "../service/serviceUser";
 import config from "../utils/config";
+import {validationResult} from "express-validator";
 
 async function attemptLogin(req: Request, res: Response) {
     const isLoginSuccess = await serviceUser.LoginUser(req.body);
@@ -24,6 +25,11 @@ function attemptLogout(req: Request, res: Response) {
 }
 
 async function attemptRegister(req: Request, res: Response) {
+    const result = validationResult(req);
+    if(!result.isEmpty()) {
+        console.log(result.array());
+        return res.status(400).json({message:"Register via main site missing data"});
+    }
     const newUser = await serviceUser.createUser(req.body);
     // This could be done better throw error to express? try catch? dont waste time now - Come back later
     if (newUser && "id" in newUser) {

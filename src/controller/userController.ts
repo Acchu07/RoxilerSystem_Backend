@@ -1,8 +1,14 @@
 import {Request, Response} from 'express';
-import serviceUser from "../service/serviceUser";
+import serviceUser, {adminService} from "../service/serviceUser";
+import {validationResult} from "express-validator";
 
 export const createUser = async (req: Request, res: Response) => {
-    const userCreated = await serviceUser.createUser(req.body);
+    const result = validationResult(req);
+    if(!result.isEmpty()) {
+        console.log(result.array());
+        return res.status(400).json({message:"Register via main site missing data"});
+    }
+    const userCreated = await adminService.createUser(req.body);
     return res.status(201).json({message: "User created successfully", data: userCreated});
 };
 

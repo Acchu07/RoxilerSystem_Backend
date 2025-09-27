@@ -1,7 +1,6 @@
 import {loggerInfo} from "../utils/logger";
 import ServiceAuth from "./serviceAuth";
-import serviceAuth from "./serviceAuth";
-import {LoginUser, RegisterUser, UserPresent, UserRegistered} from "../types/allTypes";
+import {AdminRegisterUser, LoginUser, RegisterUser, UserPresent, UserRegistered} from "../types/allTypes";
 import {dbUniqueUserFind, dbUserCreate, dbUserFindAll, dbUserUpdate} from "../model/dbUser";
 import type {Request} from "express";
 
@@ -13,7 +12,6 @@ class ServiceUser {
     }
 
     async createUser(user: RegisterUser): Promise<UserRegistered | UserPresent> {
-        // Validator here or in a middleware? - Do in Middleware
         const userPresent = await dbUniqueUserFind(user.email);
         if (userPresent) {
             throw new Error("USER_EXISTS");
@@ -29,7 +27,7 @@ class ServiceUser {
         if (userPresent) {
             const correctPassword = await ServiceAuth.verifyPassword(user.password, userPresent.password);
             if (correctPassword) {
-                const token = serviceAuth.generateToken({
+                const token = ServiceAuth.generateToken({
                     id: userPresent.id,
                     email: userPresent.email,
                     role: userPresent.role
@@ -54,11 +52,29 @@ class ServiceUser {
         const updatedUser = await dbUserUpdate(userObject);
         return updatedUser;
     };
-
-    async retrieveDashBoardInfo() {
-
-    }
 }
 
+class AdminService extends ServiceUser {
+    constructor() {
+        super();
+        loggerInfo('Invoked Admin Service');
+    }
+
+    async createUser(user: AdminRegisterUser): Promise<UserRegistered | UserPresent> {
+        const userPresent = await dbUniqueUserFind(user.email);
+        if (userPresent) {
+            throw new Error("USER_EXISTS");
+        }
+        const hashedpassword = await ServiceAuth.hashPassword(user.password);
+        const registerNewUser: AdminRegisterUser = {...user, password: hashedpassword};
+        const userRegistered = await dbUserCreate(registerNewUser);
+        return userRegistered;
+
+    }
+
+}
+
+
+export const adminService = new AdminService();
 
 export default new ServiceUser();

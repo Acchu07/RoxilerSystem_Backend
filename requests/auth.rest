@@ -51,8 +51,8 @@ POST localhost:3000/api/v1/auth/register
 Content-Type: application/json
 
 {
-  "name": "user",
-  "email": "user@example.com",
+  "name": "    user",
+  "email": "user2@example.com",
   "password": "P@1234567",
   "address": "userplace userlane"
 }
