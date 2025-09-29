@@ -4,10 +4,13 @@ Content-Type: application/json
 
 {
   "name": "testStore",
-  "email": "testStore1@store.com",
+  "email": "testStore2@store.com",
   "address": "TestLaneForTestStore",
-  "ownerId": 2
+  "ownerId": 1
 }
 
 ### Get all stores
 GET http://localhost:3000/api/v1/store
+
+### Get Ownerless Store Owners
+GET http://localhost:3000/api/v1/store/storelessOwner

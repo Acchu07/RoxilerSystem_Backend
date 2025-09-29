@@ -57,3 +57,28 @@ export const dbUserUpdate = async (userObject: UserToUpdate) => {
     });
     return updatedUser;
 };
+
+export async function dbUserFindByID(userID: number) {
+    return prisma.user.findUnique({
+        where: {
+            id: userID
+        },
+        select: {
+            role: true,
+        }
+    });
+
+}
+
+export const storelessOwners = async () => {
+    return prisma.user.findMany({
+        where: {
+            role: "STORE_OWNER",
+            stores: {is: null},
+        },
+        select: {
+            id: true,
+            name: true,
+        }
+    });
+};

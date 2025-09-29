@@ -26,8 +26,10 @@ model User {
   ratings   Rating[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  //   Should have had a has store property
 }
 
+// Something was supposed to be unique here how would a store be identified fucking shit planning more issues are popping up
 model Store {
   id        Int      @id @default(autoincrement())
   name      String

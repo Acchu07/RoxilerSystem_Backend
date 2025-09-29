@@ -6,8 +6,8 @@ function roleCheck(...role: Array<Role>) {
         if (!role.includes(req.token.data.role)) {
             return res.status(403).json({message: "Unauthorized"});
         }
-        console.log(req.token.data.role);
-        console.log(role);
+        // console.log(req.token.data.role);
+        // console.log(role);
         next();
     };
 }

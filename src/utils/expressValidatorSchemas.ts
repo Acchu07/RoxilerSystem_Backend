@@ -1,4 +1,5 @@
 import {checkSchema} from "express-validator";
+import {dbUserFindByID} from "../model/dbUser";
 
 const defaultSanitizer = {trim: true, escape:true}; // on hold if i store escaped characters in db i would need to convert them back when sending or convert at frontend
 
@@ -42,3 +43,41 @@ export const validateAdminRegistrationUser = checkSchema({
     },
 });
 
+export const validatedStoreCreation = checkSchema({
+    name: {
+        trim: true,
+        isLength: {
+            options: { min: 4, max: 60 },
+            errorMessage: "Name must be 20-60 characters",
+        },
+    },
+    email: {
+        trim: true,
+        isEmail: {
+            errorMessage: "Invalid email",
+        },
+    },
+    address: {
+        trim: true,
+        isLength: {
+            options: { max: 400 },
+            errorMessage: "Address can be max 400 characters",
+        },
+    },
+    ownerId: {
+        trim: true,
+        toInt: true,
+        custom:{
+            options: checkIfStoreOwner,
+        }
+    }
+});
+
+async function checkIfStoreOwner(ownerID:number) {
+    const owner = await dbUserFindByID(ownerID);
+    if (!owner) {
+        return Promise.reject(new Error(`User does not exist`));
+    }
+    return owner.role === "STORE_OWNER" ? true : Promise.reject(new Error(`Not a store owner`));
+
+}
