@@ -14,7 +14,7 @@ const storeRouter = express.Router();
 // Needs validator middleware
 // Role based access control - maybe redo this where it reads from a hashmap or file if i have time left
 storeRouter.post("/", roleCheck("ADMIN"), validatedStoreCreation, createStore);
-storeRouter.get("/", roleCheck("ADMIN"), getAllStores);
+storeRouter.get("/", roleCheck("ADMIN", "USER"), getAllStores);
 
 
 // Temp Fix routes
